@@ -103,6 +103,12 @@ body {
         align-items: center;
         transition: all 1s ease;
 
+        .todo-edit-input {
+          padding: 0.5rem;
+          font-size: 2rem;
+          border: none;
+        }
+
         .todo-item {
           padding: 0rem 0.5rem;
         }
@@ -115,7 +121,8 @@ body {
           text-decoration: line-through;
           opacity: 0.5;
         }
-
+        .edit-btn,
+        .safe-btn,
         .trash-btn,
         .complete-btn {
           background: $base-color;
@@ -132,7 +139,19 @@ body {
             background: rgb(89, 218, 186);
           }
         }
+        .edit-btn {
+          background: rgb(51, 156, 236);
+          &:hover {
+            background: rgb(100, 179, 240);
+          }
+        }
 
+        .safe-btn {
+          background: rgb(211, 51, 236);
+          &:hover {
+            background: rgb(228, 132, 239);
+          }
+        }
         .trash-btn:hover {
           background-color: $base-hover;
         }
