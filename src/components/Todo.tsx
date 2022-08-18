@@ -9,7 +9,7 @@ interface Props {
 
 const Todo: React.FC<Props> = ({ todos, setTodos, todo }) => {
   //
-  const [todoEdit, setTodoToEdit] = useState<string>('');
+  const [todoToEdit, setTodoToEdit] = useState<string>('');
   const [editText, setEditText] = useState<string>('');
 
   const handleDeleteTodo = () => {
@@ -33,7 +33,6 @@ const Todo: React.FC<Props> = ({ todos, setTodos, todo }) => {
 
   const handleTodoEdit = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEditText(e.target.value);
-    console.log(e.target.value);
   };
 
   const handleTodoUpdate = (id: string) => {
@@ -50,7 +49,7 @@ const Todo: React.FC<Props> = ({ todos, setTodos, todo }) => {
 
   return (
     <div className="todo">
-      {todoEdit === todo.id ? (
+      {todoToEdit === todo.id ? (
         <button className="safe-btn" onClick={() => handleTodoUpdate(todo.id)}>
           &#9755;
         </button>
@@ -60,7 +59,7 @@ const Todo: React.FC<Props> = ({ todos, setTodos, todo }) => {
         </button>
       )}
 
-      {todoEdit === todo.id ? (
+      {todoToEdit === todo.id ? (
         <input
           className="todo-edit-input"
           type="text"
