@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { ITodo } from '../interfaces/ITodo';
+import type { FC, Dispatch, SetStateAction, ChangeEvent } from 'react';
 
 interface Props {
   todos: ITodo[];
-  setTodos: React.Dispatch<React.SetStateAction<ITodo[]>>;
+  setTodos: Dispatch<SetStateAction<ITodo[]>>;
   todo: ITodo;
 }
 
-const Todo: React.FC<Props> = ({ todos, setTodos, todo }) => {
+const Todo: FC<Props> = ({ todos, setTodos, todo }) => {
   //
   const [todoToEdit, setTodoToEdit] = useState<string>('');
   const [editText, setEditText] = useState<string>('');
@@ -31,7 +32,7 @@ const Todo: React.FC<Props> = ({ todos, setTodos, todo }) => {
     setTodoToEdit(id);
   };
 
-  const handleTodoEdit = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleTodoEdit = (e: ChangeEvent<HTMLInputElement>) => {
     setEditText(e.target.value);
   };
 

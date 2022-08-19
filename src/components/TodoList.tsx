@@ -1,14 +1,15 @@
 import React from 'react';
 import { ITodo } from '../interfaces/ITodo';
 import Todo from './Todo';
+import type { FC, Dispatch, SetStateAction } from 'react';
 
 interface Props {
   todos: ITodo[];
-  setTodos: React.Dispatch<React.SetStateAction<ITodo[]>>;
+  setTodos: Dispatch<SetStateAction<ITodo[]>>;
   filteredTodos: ITodo[];
 }
 
-const TodoList: React.FC<Props> = ({ todos, setTodos, filteredTodos }) => {
+const TodoList: FC<Props> = ({ todos, setTodos, filteredTodos }) => {
   //
   return (
     <div className="todo-container">

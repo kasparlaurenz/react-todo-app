@@ -1,16 +1,23 @@
 import React from 'react';
 import { ITodo } from '../interfaces/ITodo';
 import uniqid from 'uniqid';
+import type {
+  FC,
+  Dispatch,
+  SetStateAction,
+  ChangeEvent,
+  MouseEvent,
+} from 'react';
 
 interface Props {
   inputText: string;
-  setInputText: React.Dispatch<React.SetStateAction<string>>;
+  setInputText: Dispatch<SetStateAction<string>>;
   todos: ITodo[];
-  setTodos: React.Dispatch<React.SetStateAction<ITodo[]>>;
-  setStatus: React.Dispatch<React.SetStateAction<string>>;
+  setTodos: Dispatch<SetStateAction<ITodo[]>>;
+  setStatus: Dispatch<SetStateAction<string>>;
 }
 
-const Form: React.FC<Props> = ({
+const Form: FC<Props> = ({
   inputText,
   setInputText,
   todos,
@@ -18,11 +25,11 @@ const Form: React.FC<Props> = ({
   setStatus,
 }) => {
   //
-  const handleInputText = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputText = (e: ChangeEvent<HTMLInputElement>) => {
     setInputText(e.target.value);
   };
 
-  const handleAddTodo = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleAddTodo = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const newTodo: ITodo = {
       id: uniqid('todo-'),
@@ -33,7 +40,7 @@ const Form: React.FC<Props> = ({
     setInputText('');
   };
 
-  const handleStatus = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleStatus = (e: ChangeEvent<HTMLSelectElement>) => {
     setStatus(e.target.value);
   };
 
